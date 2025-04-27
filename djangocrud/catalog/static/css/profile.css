@@ -1,0 +1,99 @@
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+    max-width: 70rem;
+    margin: 0 auto;
+    gap: 3rem;
+    margin-bottom: auto;
+}
+
+.menu {
+    width: 240px;
+    border-right: 1px solid #1F1F1F;
+    padding-right: 1rem;
+    margin-top: 5rem;
+    margin-bottom: auto;
+}
+
+.menu h2 {
+    font-size: 24pt;
+    color: #1F1F1F;
+    margin-bottom: 2rem;
+}
+
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.menu-links a {
+    font-size: 14pt;
+    color: #02645D;
+    text-decoration: none;
+    transition: color ease 200ms;
+}
+
+.menu-links a:hover {
+    color: #03968B;
+}
+
+.profile-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.orders-section {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin-top: 5rem;
+    margin-bottom: auto;
+}
+
+.orders-section h3{
+    font-size: 24pt;
+    color: #1F1F1F;
+    margin-bottom: 1rem;
+}
+
+.order-list{
+    list-style: none;
+    padding-left: 0;
+}
+
+.order-item {
+    margin-bottom: 1.5rem;
+}
+
+.order-item strong {
+    color: #03968B;
+    font-size: 14pt;
+}
+
+.order-item ul {
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+}
+
+.order-item li{
+    font-size: 12pt;
+    color: #1F1F1F;
+    margin-bottom: 0.3rem;
+}
+
+p {
+    font-size: 12pt;
+    color: #1F1F1F;
+}
+
+.delete-button{
+    color : #FF0000;
+    background-color: transparent;
+    border: none;
+    font-size: 12pt;
+    cursor: pointer;
+}

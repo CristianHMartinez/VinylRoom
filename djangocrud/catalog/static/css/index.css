@@ -1,0 +1,195 @@
+/*Slider*/
+.Slider-Container{
+    margin-top: 3rem;
+    padding: 2rem;
+
+}
+
+.Slider-Wrapper{
+    position: relative;
+    max-width: 70rem;
+    margin: 0 auto;
+}
+
+.Slider {
+    display: flex;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 0.5rem;
+}
+
+.Slider img {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    object-fit: fill;
+    transition: opacity 0.3s ease;
+}
+.Slider-nav{
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.Slider-nav a{
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.75;
+    transition: opacity ease 50ms;
+}
+
+.Slider-nav a:hover{
+    opacity: 1;
+}
+
+/*Product*/
+.Product-Container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+/*Sepatartor*/
+.Product-Header{
+    display: flex;
+    width: 100%;
+    max-width: 70rem;
+    background-color: transparent;
+    justify-content: space-between;
+    padding: .5rem;
+    border-bottom: 1px solid #1F1F1F;
+}
+
+.Product-Header h1{
+    font-size: 14.4pt;
+    color: #1F1F1F;
+}
+
+.Product-Header button{
+    background-color: transparent;
+    color: #03968B;
+    border: none;
+    cursor: pointer;
+    font-size: 10pt;
+    transition: background-color ease 200ms;
+}
+
+/*Product Container*/
+.Products{
+    display: flex;
+}
+
+
+.Product-Wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 240px;
+    height: 300px;
+    margin: 20px;
+}
+
+.Product-Img{
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+}
+
+.Product-Img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Product-Wrapper h6{
+    font-size: 14.4pt;
+    color: #1F1F1F;
+    margin: 0;
+}
+
+.Product-Price{
+    display: flex;
+}
+.Product-Price p{
+    padding: 2px;
+    padding-top: 4px;
+    font-size: 10pt;
+    color: #03968B;
+    margin: 0;
+}
+
+.Product-Wrapper:hover{
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    transition: box-shadow ease 0.3s;
+    scale: 1.05;
+}
+
+/*Categories/Genres*/
+.Genres{
+    display: flex;
+    max-width: 70rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.Genre-Wrapper{
+    margin: 25px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+}
+
+.Genre-Img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Genre-Wrapper:hover{
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    transition: box-shadow ease 0.3s;
+    scale: 1.05;
+}
+/*Advertising*/
+.Advertising{
+    width: 100%;
+    height: 400px;
+    background-color: #B5E0DD;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 5rem;
+}
+
+.Advertising-Img{
+    width: 345px;
+    height: 345px;
+    margin-right: 10rem;
+}
+
+.Advertising-Img img{
+    width: 100%;
+    height: 100%;
+    object-fit: fixed;
+}
+
+.Advertising div h1{
+    font-size: 35.84pt;
+    color: #1F1F1F;
+    max-width: 40rem;
+}
+
+.Advertising div p{
+    max-width: 40rem;
+    font-size: 12pt;
+    color: #1F1F1F;
+    margin-top: 2rem;
+}

@@ -1,0 +1,45 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/edit_addresses.css' %}">
+<main class="address-edit">
+  <section class="Edit_Section">
+    <h1 class="Title">Edit Adress</h1>
+
+    <form method="POST" class="Edit_Form">
+      {% csrf_token %}
+      <div class="Edit_Form_Fields">
+        {{ form.as_p }}
+      </div>
+
+      <div>
+        <button type="submit" class="UpdadeAdress">Update Direction</button>
+      </div>
+    </form>
+  </section>
+
+  <hr>
+
+  <section class="Old_Address">
+    <h2>Adress Details</h2>
+    <article>
+      <ul >
+        <li><strong>Street addres:</strong> {{ address.street }}</li>
+        <li><strong>City:</strong> {{ address.city }}</li>
+        <li><strong>Zip Code:</strong> {{ address.zip_code }}</li>
+        <li><strong>Country:</strong> {{ address.country }}</li>
+      </ul>
+    </article>
+
+    <nav class="Back_to_List">
+      <a href="{% url 'catalog:manage_addresses' %}">
+        <svg  xmlns="http://www.w3.org/2000/svg"  width="18"  height="18"  viewBox="0 0 18 18"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M15 6l-6 6l6 6" />
+        </svg>
+        Back To Address List</a>
+    </nav>
+  </section>
+</main>
+
+{% endblock content%}

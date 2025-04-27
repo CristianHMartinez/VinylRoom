@@ -1,0 +1,99 @@
+{% extends "header.html" %}
+{% load static %}
+
+    {% block content %}
+    
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    
+    <main>
+        <section class="Slider-Container" aria-label="Newest Photos">
+            <div class="Slider-Wrapper" data-carousel>
+                <div class="Slider">
+                    <img src="{% static "images/Highlight_Image1.png" %}" alt="Highlight Image #1" id="slide1">
+                    <img src="{% static "images/Highlight_Image2.png" %}" alt="Highlight Image #2" id="slide2">
+                </div>
+                <div class="Slider-nav">
+                    <a href="#slide1"></a>
+                    <a href="#slide2"></a>
+                </div>
+            </div>
+        </section>
+        <section class="Product-Container">
+            <div class="Product-Header">
+                <h5>Highlighted Products</h5>
+            </div>
+            
+            <div class="Products">
+                {% for prod in product %}
+                    <a href="{% url 'catalog:product' prod.id %}">
+                    <div class="Product-Wrapper">
+                        <div class="Product-Img">
+                            <img src="{{ prod.image.url }}" alt="{{ prod.name }}">
+                        </div>
+                        <h6>{{ prod.name }}</h6>
+                        <div class="Product-Price">
+                            <p>$</p>
+                            <p>{{ prod.price }}</p>
+                            <p>USD</p>
+                        </div>
+                    </div>
+                    </a>
+                {% endfor %} 
+            </div>
+        </section>
+
+        <section class="Product-Container">
+            <div class="Product-Header">
+                <h5>Genres</h5>
+            </div>
+
+            <div class="Genres">
+                {% for gen in genre %}
+                <a href="{% url 'catalog:genre' gen.id %}">
+                <div class="Genre-Wrapper">
+                    <div class="Genre-Img">
+                        <img src="{{ gen.image.url }}" alt="{{ gen.name }}">
+                    </div>
+                </div>
+                </a>
+                {% endfor %}
+            </div>
+
+        </section>
+
+        <section class="Advertising">
+            <div>
+                <h1>Rediscover music like never before — on vinyl.</h1>
+                <p>Experience the warmth, artistry, and nostalgia of analog sound with our online store. At The Vinyl Room, you'll find a curated selection of records from timeless classics to hidden gems across every genre.</p>
+            </div>
+            <div class="Advertising-Img">
+                <img src="{% static "images/AdvImg.png" %}" alt="Advertising Image">
+            </div>
+        </section>
+        
+        <section class="Product-Container">
+            <div class="Product-Header">
+                <h5>Highlighted Products</h5>
+            </div>
+            
+            <div class="Products">
+                {% for prod in product %}
+                    <a href="{% url 'catalog:product' prod.id %}">
+                    <div class="Product-Wrapper">
+                        <div class="Product-Img">
+                            <img src="{{ prod.image.url }}" alt="{{ prod.name }}">
+                        </div>
+                        <h6>{{ prod.name }}</h6>
+                        <div class="Product-Price">
+                            <p>$</p>
+                            <p>{{ prod.price }}</p>
+                            <p>USD</p>
+                        </div>
+                    </div>
+                    </a>
+                {% endfor %} 
+            </div>
+        </section>
+
+        <script src="{% static 'js/index.js' %}"></script>
+    {% endblock content%}

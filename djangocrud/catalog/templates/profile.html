@@ -1,0 +1,49 @@
+{% extends "header.html" %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+<main class="profile-container">
+    <aside class="menu">
+        <h2>Welcome, {{ user.username }}</h2>
+        <div class="menu-links">
+            <a href="{% url 'catalog:user_config' %}">Edit Info</a>
+            <a href="{% url 'catalog:manage_addresses' %}">Manage Addresses</a>
+            <a href="{% url 'catalog:logout' %}" class="logout-button" id="logout-btn">Logout</a>
+            <form action="{% url 'catalog:delete_account' %}" method="POST" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="delete-button" id="delete-btn">Delete Account</button>
+            </form>
+        </div>
+    </aside>
+
+    <section class="profile-content">
+        <div class="orders-section">
+            <h3>Your Orders</h3>
+            {% if orders %}
+                <ul class="order-list">
+                    {% for order in orders %}
+                        <li class="order-item">
+                            <strong>Order</strong> — {{ order.order_date|date:"F j, Y" }}
+                            <br>
+                            <strong>Shipping to:</strong> {{ order.shipping_address }}
+                            <br>
+                            <strong>Estimated Delivery:</strong> {{ order.estimated_delivery|date:"F j, Y" }}
+                            <ul>
+                                {% for item in order.orderitem_set.all %}
+                                    <li>{{ item.product.name }} - {{ item.quantity }} pcs - ${{ item.price }}</li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>You have no orders yet.</p>
+            {% endif %}
+        </div>
+    </section>
+</main>
+
+<script src="{% static 'js/profile.js' %}"></script>
+{% endblock content %}

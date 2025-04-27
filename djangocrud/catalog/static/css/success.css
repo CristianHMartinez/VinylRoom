@@ -1,0 +1,55 @@
+.order-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    max-width: 70rem;
+    margin: 0 auto;
+    gap: 3rem;
+    text-align: center;
+}
+
+.order-success h1 {
+    font-size: 40pt;
+    color: #1F1F1F;
+    margin-bottom: 1rem;
+}
+
+.order-success p {
+    font-size: 18pt;
+    color: #1F1F1F;
+    margin-bottom: 2rem;
+}
+
+.order-success ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+}
+
+.order-success ul strong {
+    font-size: 14pt;
+    color: #03968B;
+}
+
+.order-success li {
+    font-size: 12pt;
+    color: #1F1F1F;
+    margin-bottom: 0.5rem;
+}
+
+.order-success a {
+    font-size: 14pt;
+    color: #02645D;
+    text-decoration: none;
+    border: 1px solid #02645D;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.3rem;
+    transition: all ease 200ms;
+}
+
+.order-success a:hover {
+    background-color: #02645D;
+    color: white;
+    border-color: #03968B;
+}

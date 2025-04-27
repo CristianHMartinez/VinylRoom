@@ -1,0 +1,78 @@
+/* profile.css */
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 30rem;
+    margin: 4rem auto;
+    padding: 1rem;
+}
+
+.profile-container h2 {
+    font-size: 24pt;
+    color: #1F1F1F;
+    margin: 2rem 0 1rem 0;
+    text-align: center;
+}
+
+.address-form {
+    width: 100%;
+    background-color: transparent;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem -0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.address-form p {
+    font-size: 12pt;
+    color: #1F1F1F;
+    margin-bottom: 1.5rem;
+}
+
+.address-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.address-form input[type="text"],
+.address-form input[type="email"],
+.address-form input[type="number"],
+.address-form input[type="tel"],
+.address-form select,
+.address-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 12pt;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    color: #1F1F1F;
+}
+
+.address-form button[type="submit"] {
+    background-color: #03968B;
+    color: #FAFAFA;
+    border: none;
+    cursor: pointer;
+    font-size: 14.4pt;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    transition: background-color ease 200ms;
+    width: 15rem;
+}
+
+.address-form button[type="submit"]:hover {
+    background-color: #02645D;
+}
+
+hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #1F1F1F;
+    margin: 3rem 0;
+}

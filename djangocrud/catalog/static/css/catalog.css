@@ -1,0 +1,84 @@
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+/*Sepatartor*/
+.Product-Header{
+    display: flex;
+    width: 100%;
+    max-width: 70rem;
+    background-color: transparent;
+    justify-content: space-between;
+    padding: .5rem;
+    border-bottom: none;
+}
+
+.Product-Header h5{
+    font-size: 17pt;
+    color: #1F1F1F;
+}
+
+.Product-Header button{
+    background-color: transparent;
+    color: #03968B;
+    border: none;
+    cursor: pointer;
+    font-size: 10pt;
+    transition: background-color ease 200ms;
+}
+
+/*Product Container*/
+.Products{
+    display: flex;
+}
+
+
+.Product-Wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 240px;
+    height: 300px;
+    margin: 20px;
+}
+
+.Product-Img{
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+}
+
+.Product-Img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Product-Wrapper h6{
+    font-size: 14.4pt;
+    color: #1F1F1F;
+    margin: 0;
+}
+
+.Product-Price{
+    display: flex;
+}
+.Product-Price p{
+    padding: 2px;
+    padding-top: 4px;
+    font-size: 10pt;
+    color: #03968B;
+    margin: 0;
+}
+
+.Product-Wrapper:hover{
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    transition: box-shadow ease 0.3s;
+    scale: 1.05;
+}

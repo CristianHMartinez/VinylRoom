@@ -1,0 +1,224 @@
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Product Info*/
+.Product{
+    width: 70rem;
+    display: flex;
+    align-items: center;
+}
+
+.Image-Desc-Container{
+    margin-left: 5rem;
+    width: 480px;
+}
+
+
+.Image-Wrapper{
+    width: 480px;
+    height: 480px;
+}
+
+.Image-Wrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Desc-Wrapper p{
+    font-size: 12pt;
+    color: #1F1F1F;
+    margin: 0;
+}
+
+.Info-Container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15rem;
+    margin-top: 5rem;
+}
+
+/*Product*/
+.Product-Container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+}
+.Price-Wrapper{
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.Price-Wrapper h3{
+    font-size: 24.89pt;
+    color: #47B881;
+}
+
+.Info-Wrapper h5{
+    font-size: 14.4pt;
+    color: #1F1F1F;
+    margin: 0;
+}
+
+.Info-Wrapper h1{
+    font-size: 38.54pt;
+    color: #1F1F1F;
+    margin: 1rem 0 1rem 0;
+}
+.Info-Wrapper h3{
+    font-size: 24.89pt;
+    color: #1F1F1F;
+    margin: 0;
+}
+
+.Info-Wrapper p{
+    margin: 2rem 0 1rem 0;
+    font-size: 12pt;
+    color: #1F1F1F;
+
+}
+
+.Track-Wrapper{
+    display: flex;
+}
+
+
+.Track-Wrapper h5{
+    font-size: 14.4pt;
+    color: #1F1F1F;
+    margin-right: 10px;
+}
+
+.Quantity-Wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 8rem;
+    border: #1F1F1F 1px solid;
+    margin-bottom: 1rem;
+}
+
+.Quantity-Wrapper input{
+    width: 15px;
+    border: none;
+    background-color: transparent;
+    font-size: 20pt;
+    color: #1F1F1F;
+    margin: 0 25px 0 25px ;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.Quantity-Wrapper button{
+    padding: 5px;
+    background-color: transparent;
+    color: #1F1F1F;
+    border: none;
+    cursor: pointer;
+    font-size: 20pt;
+    transition: background-color ease 200ms;
+
+}
+
+
+.AddCart{
+    background-color: #03968B;
+    color: #FAFAFA;
+    border: none;
+    cursor: pointer;
+    font-size: 14.4pt;
+    transition: background-color ease 200ms;
+    width: 200px;
+    height: 40px;
+}
+
+.AddCart:hover{
+    background-color: #02645D;
+    transition: background-color ease 200ms;
+}
+
+
+/*Sepatartor*/
+.Product-Header{
+    display: flex;
+    width: 100%;
+    max-width: 70rem;
+    background-color: transparent;
+    justify-content: space-between;
+    padding: .5rem;
+    border-bottom: 1px solid #1F1F1F;
+}
+
+.Product-Header h5{
+    font-size: 17pt;
+    color: #1F1F1F;
+}
+
+.Product-Header button{
+    background-color: transparent;
+    color: #02645D;
+    border: none;
+    cursor: pointer;
+    font-size: 10pt;
+    transition: background-color ease 200ms;
+}
+
+/*Product Container*/
+.Products{
+    display: flex;
+}
+
+
+.Product-Wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 240px;
+    height: 300px;
+    margin: 20px;
+}
+
+.Product-Img{
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+}
+
+.Product-Img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Product-Wrapper h6{
+    font-size: 14.4pt;
+    color: #1F1F1F;
+    margin: 0;
+}
+
+.Product-Price{
+    display: flex;
+}
+.Product-Price p{
+    padding: 2px;
+    padding-top: 4px;
+    font-size: 10pt;
+    color: #03968B;
+    margin: 0;
+}
+
+.Product-Wrapper:hover{
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    transition: box-shadow ease 0.3s;
+    scale: 1.05;
+}

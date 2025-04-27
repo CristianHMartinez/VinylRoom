@@ -1,0 +1,23 @@
+{% extends "header.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/chooseAddress.css' %}">
+<main class="profile-container">
+    <h2>Select an existing address</h2>
+    <form method="post" class="address-form">
+        {% csrf_token %}
+        {{ select_form.as_p }}
+        <button type="submit" name="select_address">Use This Addres</button>
+    </form>
+
+    <hr>
+
+    <h2>create a new address</h2>
+    <form method="post" class="address-form">
+        {% csrf_token %}
+        {{ address_form.as_p }}
+        <button type="submit" name="create_address">Save New Address</button>
+    </form>
+
+</main>
+{% endblock content %}

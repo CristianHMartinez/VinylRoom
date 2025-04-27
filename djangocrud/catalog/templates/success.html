@@ -1,0 +1,23 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/success.css' %}">
+<section class="order-success">
+    <h1>Thank you for your purchase!</h1>
+    <h3>Your order has been processed successfully.</h3>
+    
+    <ul>
+        <strong>Order</strong> — {{ order.order_date|date:"F j, Y" }}
+        <br>
+        <strong>Shipping to:</strong> {{ order.shipping_address }}
+        <br>
+        <strong>Estimated Delivery:</strong> {{ order.estimated_delivery|date:"F j, Y" }}
+        <br>
+        <strong>Order Items:</strong>
+        {% for item in order.orderitem_set.all %}
+            <li>{{ item.quantity }} x {{ item.product.name }} — ${{ item.price }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'catalog:index' %}">Volver al inicio</a>
+</section>
+{% endblock content %}

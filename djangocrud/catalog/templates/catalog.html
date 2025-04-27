@@ -1,0 +1,41 @@
+{% extends "header.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/catalog.css' %}">
+<main>
+    <section>
+        {% for genre, products in genre_sections %}
+        <section class="Product-Container">
+            <div class="Product-Header">
+                <h5>{{ genre.name }}</h5>
+                <a href="{% url 'catalog:genre' genre.id %}">
+                <button>See All</button>
+                </a>
+            </div>
+            
+            <div class="Products">
+                {% for prod in products %}
+                    <a href="{% url 'catalog:product' prod.id %}">
+                        <div class="Product-Wrapper">
+                            <div class="Product-Img">
+                                <img src="{{ prod.image.url }}" alt="{{ prod.name }}">
+                            </div>
+                            <h6>{{ prod.name }}</h6>
+                            <div class="Product-Price">
+                                <p>$</p>
+                                <p>{{ prod.price }}</p>
+                                <p>USD</p>
+                            </div>
+                        </div>
+                    </a>
+                {% empty %}
+                    <p>There are no products in this genre.</p>
+                {% endfor %} 
+            </div>
+        </section>
+        {% endfor %}
+    </section>
+    
+</main>
+
+{% endblock content%}

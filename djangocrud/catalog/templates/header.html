@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Vinyl Room</title>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header> 
+        <div>
+            <a href="{% url 'catalog:index' %}">
+                <h2>The Vinyl Room</h2>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li class="nav-item"><button><a href="{% url 'catalog:index' %}">Home</a></button></li>
+                <li class="nav-item"><button><a href="{% url 'catalog:catalog' %}">Catalog</a></button></li>
+                <li class="nav-item dropdown-parent">
+                    <button><a href="">Artist</a></button>
+                    <div class="dropdown">
+                        {% for artists in artistheader %}
+                        <a href="{% url 'catalog:artist' artists.id %}">{{ artists.name }}</a>
+                        {% endfor %}
+                    </div>
+                </li>
+                <li class="nav-item dropdown-parent">
+                    <button><a href="#">Genre</a></button>
+                    <div class="dropdown">
+                        {% for gen in genreheader %}
+                        <a href="{% url 'catalog:genre' gen.id %}">{{ gen.name }}</a>
+                        {% endfor %}
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <nav>
+            <div>
+                <form action="{% url 'catalog:global_search' %}" method="get">
+                    <input type="text" name="q" placeholder="Search for vinyl...">
+                    <button type="submit">
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+            {% if user.is_authenticated %}
+                <button>
+                    <a href="{% url 'catalog:user_profile' %}">
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-user-check"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4" /><path d="M15 19l2 2l4 -4" /></svg>
+                    </a>
+            {% else %}
+                <button>
+                    <a href="{% url 'catalog:login_register' %}">
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-user"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
+                    </a>
+                </button>
+            {% endif %}
+            <button>
+                <a href="{% url 'catalog:cart' %}" class="cart-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-bag">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" />
+                        <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
+                    </svg>
+                </a>
+                
+            </button>
+        </nav>
+
+    </header>
+    {% block content %}
+    {% endblock content%}
+    <footer>
+        <div class="Footer-Buttons">
+            <button>
+                <a href="">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+                    </svg>
+                </a>
+            </button>
+            <button>
+                <a href="">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" />
+                    </svg>
+                </a>
+            </button>
+            <button>
+                <a href="">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+                    </svg>
+                </a>
+            </button>
+            <button>
+                <a href="">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-spotify"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M8 11.973c2.5 -1.473 5.5 -.973 7.5 .527" /><path d="M9 15c1.5 -1 4 -1 5 .5" /><path d="M7 9c2 -1 6 -2 10 .5" />
+                    </svg>
+                </a>
+            </button>
+            <button>
+                <a href="">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-soundcloud"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M17 11h1c1.38 0 3 1.274 3 3c0 1.657 -1.5 3 -3 3l-6 0v-10c3 0 4.5 1.5 5 4z" /><path d="M9 8l0 9" /><path d="M6 17l0 -7" /><path d="M3 16l0 -2" />
+                    </svg>
+                </a>
+            </button>
+            <button>
+                <a href="">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-tidal"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5.333 6l3.334 3.25l3.333 -3.25l3.333 3.25l3.334 -3.25l3.333 3.25l-3.333 3.25l-3.334 -3.25l-3.333 3.25l3.333 3.25l-3.333 3.25l-3.333 -3.25l3.333 -3.25l-3.333 -3.25l-3.334 3.25l-3.333 -3.25z" />
+                    </svg>
+                </a>
+            </button>
+        </div>
+        <p>© 2023 The Vinyl Room. All rights reserved.</p>
+    </footer>
+</body>
+</html>

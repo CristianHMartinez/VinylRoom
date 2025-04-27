@@ -1,0 +1,114 @@
+{% extends "header.html" %}
+{% load static %}
+
+    {% block content %}
+    
+
+    <link rel="stylesheet" href="{% static 'css/genre.css' %}">
+    
+    <main>
+        <aside>
+            <h1>Filters</h1>
+            <form method="get" id="filterForm">
+                <h6>Sort By:</h6>
+                <select name="order_by" onchange="document.getElementById('filterForm').submit()">
+                    <option value="">Sort By</option>
+                    <option value="price_asc" {% if order_by == 'price_asc' %}selected{% endif %}>Price: lowest to highest</option>
+                    <option value="price_desc" {% if order_by == 'price_desc' %}selected{% endif %}>Price: highest to lowest</option>
+                    <option value="name_asc" {% if order_by == 'name_asc' %}selected{% endif %}>Name: A-Z</option>
+                    <option value="name_desc" {% if order_by == 'name_desc' %}selected{% endif %}>Name: Z-A</option>
+                </select>
+        
+                <h6>Artist</h6>
+                <select name="artist_id" onchange="document.getElementById('filterForm').submit()">
+                    <option value="">All the artists</option>
+                    {% for a in artistheader %}
+                        <option value="{{ a.id }}" {% if artist and artist.id == a.id %}selected{% endif %}>
+                            {{ a.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+        
+                <fieldset class="price-filter">
+                    <h6>Price Range</h6>
+        
+                    <label>
+                        <input type="radio" name="price_filter" value="" {% if not price_filter %}checked{% endif %} onchange="document.getElementById('filterForm').submit()">
+                        All prices
+                    </label><br>
+        
+                    <label>
+                        <input type="radio" name="price_filter" value="lt_500" {% if price_filter == 'lt_500' %}checked{% endif %} onchange="document.getElementById('filterForm').submit()">
+                        Less than $25
+                    </label><br>
+        
+                    <label>
+                        <input type="radio" name="price_filter" value="lt_1000" {% if price_filter == 'lt_1000' %}checked{% endif %} onchange="document.getElementById('filterForm').submit()">
+                        Less than $50
+                    </label><br>
+        
+                    <label>
+                        <input type="radio" name="price_filter" value="lt_1500" {% if price_filter == 'lt_1500' %}checked{% endif %} onchange="document.getElementById('filterForm').submit()">
+                        Less than $75
+                    </label><br>
+        
+                    <label>
+                        <input type="radio" name="price_filter" value="lt_2000" {% if price_filter == 'lt_2000' %}checked{% endif %} onchange="document.getElementById('filterForm').submit()">
+                        Less than $100
+                    </label><br>
+                </fieldset>
+            </form>
+        </aside>
+        <section class="Product-Container">
+            <div class="Products">
+                {% for prod in page_obj %}
+                    <a href="{% url 'catalog:product' prod.id %}">
+                    <div class="Product-Wrapper">
+                        <div class="Product-Img">
+                            <img src="{{ prod.image.url }}" alt="{{ prod.name }}">
+                        </div>
+                        <h6>{{ prod.name }}</h6>
+                        <div class="Product-Price">
+                            <p>$</p>
+                            <p>{{ prod.price }}</p>
+                            <p>USD</p>
+                        </div>
+                    </div>
+                    </a>
+                {% endfor %} 
+            </div>
+            <div class="pagination">
+                <ul class="pagination_Container">
+                    <!-- Botón de página anterior -->
+                    {% if page_obj.has_previous %}
+                    <li>
+                        <a href="?{% if request.GET %}{{ request.GET.urlencode|safe }}&{% endif %}page={{ page_obj.previous_page_number }}"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg></a>
+                    </li>
+                    {% else %}
+                    <li class="disabled"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg></li>
+                    {% endif %}
+        
+                    <!-- Números de página -->
+                    {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                    <li class="active"><span>{{ num }}</span></li>
+                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <li class="Num_non_active"><a href="?{% if request.GET %}{{ request.GET.urlencode|safe }}&{% endif %}page={{ num }}">{{ num }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+        
+                    <!-- Botón de página siguiente -->
+                    {% if page_obj.has_next %}
+                    <li>
+                        <a href="?{% if request.GET %}{{ request.GET.urlencode|safe }}&{% endif %}page={{ page_obj.next_page_number }}"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg></a>
+                    </li>
+                    {% else %}
+                    <li class="disabled"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </section>
+
+        
+    </main>
+    {% endblock content%}

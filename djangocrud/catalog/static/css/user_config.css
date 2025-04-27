@@ -1,0 +1,58 @@
+.user-settings {
+    padding: 2rem;
+    font-family: "Comic Neue", cursive;
+}
+
+.user-settings__container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-settings__title {
+    font-size: 24pt;
+    margin-bottom: 2rem;
+    color: #1F1F1F;
+}
+
+.user-settings__form-section {
+    margin-bottom: 2rem;
+}
+
+.user-settings__section-title {
+    font-size: 18pt;
+    margin-bottom: 1rem;
+    color: #03968B;
+}
+
+.user-settings form p {
+    margin-bottom: 1rem;
+}
+
+.user-settings input,
+.user-settings select,
+.user-settings textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 12pt;
+}
+
+.user-settings__submit-button {
+    background-color: #03968B;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 14pt;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-bottom: 1rem;
+}
+
+.user-settings__submit-button:hover {
+    background-color: #027b73;
+}

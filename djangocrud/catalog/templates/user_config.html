@@ -1,0 +1,29 @@
+{% extends "header.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/user_config.css' %}">
+<main class="user-settings">
+    <div class="user-settings__container">
+        <h2 class="user-settings__title">User Settings</h2>
+
+        <form method="POST" id="profile-form">
+            {% csrf_token %}
+            <div class="user-settings__form-section">
+                <h3 class="user-settings__section-title">Edit Profile</h3>
+                {{ profile_form.as_p }}
+            </div>
+            <button type="submit" class="user-settings__submit-button">Save Profile</button>
+        </form>
+
+        <form method="POST" id="password-form">
+            {% csrf_token %}
+            <div class="user-settings__form-section">
+                <h3 class="user-settings__section-title">Change Password</h3>
+                {{ password_form.as_p }}
+            </div>
+            <button type="submit" class="user-settings__submit-button">Change Password</button>
+        </form>
+
+    </div>
+</main>
+{% endblock content %}

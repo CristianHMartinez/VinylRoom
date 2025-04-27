@@ -1,0 +1,75 @@
+{% extends "header.html" %}
+{% load static %}
+
+    {% block content %}
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+    <script src="{% static 'js/product.js' %}"></script>
+
+    <main>
+        <section class="Product">
+            <section class="Image-Desc-Container">
+                <div class="Image-Wrapper">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                </div>
+                <div class="Desc-Wrapper">
+                    <p>{{ product.description }}</p>
+                </div>
+            </section>
+            <section class="Info-Container">
+                <div class="Info-Wrapper">
+                    <h5>{{product.artist.name}}</h5>
+                    <h1>{{ product.name }}</h1>
+                    <div class="Price-Wrapper">
+                        <h3>$</h3>
+                        <h3>{{ product.price }}</h3>
+                        <h3>USD</h3>
+                    </div>
+                    <form method="POST" action="{% url 'catalog:cart' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                    
+                        <div class="Quantity-Wrapper">
+                            <button type="button" onclick="updateQuantity(-1)">-</button>
+                            <input type="number" id="quantity" name="quantity" value="1" min="1">
+                            <button type="button" onclick="updateQuantity(1)">+</button>
+                        </div>
+                    
+                        <button type="submit" name="add" class="AddCart">Add To Cart</button>
+                    </form>
+                    
+                    <P>Tracklist</P>
+                    {% for track in tracklist %}
+                        <div class="Track-Wrapper">
+                            <h5>{{ track.track_number }}</h5>
+                            <h5>{{ track.track_name }}</h5>
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </section>
+        <section class="Product-Container">
+            <div class="Product-Header">
+                <h5>More from {{ product.artist.name }}</h5> 
+            </div>
+            
+            
+            <div class="Products">
+                {% for prod in products %}
+                    <a href="{% url 'catalog:product' prod.id %}">
+                    <div class="Product-Wrapper">
+                        <div class="Product-Img">
+                            <img src="{{ prod.image.url }}" alt="{{ prod.name }}">
+                        </div>
+                        <h6>{{ prod.name }}</h6>
+                        <div class="Product-Price">
+                            <p>$</p>
+                            <p>{{ prod.price }}</p>
+                            <p>USD</p>
+                        </div>
+                    </div>
+                    </a>
+                {% endfor %} 
+            </div>
+        </section>
+    </main>
+    {% endblock content%}

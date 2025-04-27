@@ -1,0 +1,77 @@
+.address-edit{
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 600px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+}
+
+.Edit_Section{
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.Title{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.Edit_Form{
+    display: flex;
+    flex-direction: column;
+}
+
+.Edit_Form_Fields{
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Edit_Form_Fields label{
+    font-weight: bold;
+}
+.Edit_Form_Fields input{
+    padding: 10px;
+    border: .5px solid #1F1F1F;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.Edit_Form_Fields input:focus{
+    border-color: #03968B;
+    outline: none;
+}
+
+.UpdadeAdress{
+    background-color: #03968B;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.UpdadeAdress:hover{
+    background-color: #02645D;
+}
+
+.Old_Address{
+    font-size: 14.4pt;
+    color: #555;
+    margin-bottom: 10px;
+    margin-top: 1rem;
+}
+
+.Old_Address ul{
+    list-style-type: none;
+    padding: 0;
+    margin-top: .5rem;
+}
+
+.Back_to_List{
+    margin-top: 2rem;
+}

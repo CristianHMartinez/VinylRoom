@@ -1,0 +1,11 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/product_not_found.css' %}">
+<section class="product-not-found">
+    <h1>Product not found</h1>
+    <h3>We couldn't find what you were looking for.</h3>
+    <p>Please try again or browse our catalog.</p>
+    <a href="{% url 'catalog:index' %}">Volver al inicio</a>
+</section>
+{% endblock content %}
