@@ -78,17 +78,10 @@ WSGI_APPLICATION = 'djangocrud.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('PGDATABASE'),
-        'USER': os.getenv('PGUSER'),
-        'PASSWORD': os.getenv('PGPASSWORD'),
-        'HOST': os.getenv('PGHOST'),  # Should match exactly what Railway provides
-        'PORT': os.getenv('PGPORT'),
-        'OPTIONS': {
-            'connect_timeout': 5,  # Add connection timeout
-        },
-    }
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL'),
+        conn_max_age=600,  # Mantiene la conexión abierta para mejorar el performance
+    )
 }
 
 # Password validation
