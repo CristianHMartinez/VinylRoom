@@ -404,7 +404,7 @@ def product_not_found(request):
 stripe.api_key = settings.STRIPE_SECRET_KEY
 YOUR_DOMAIN = settings.YOUR_DOMAIN 
 
-YOUR_DOMAIN = "http://127.0.0.1:8000"  # Cambia esto por tu dominio real
+YOUR_DOMAIN = "https://vinylroom-production.up.railway.app/"  # Cambia esto por tu dominio real
 
 
 def create_checkout_session(request):
