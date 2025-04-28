@@ -1,2 +1,2 @@
-release: python manage.py migrate
+release: python manage.py migrate --noinput
 web: gunicorn tu_proyecto.wsgi --bind 0.0.0.0:$PORT
