@@ -14,6 +14,7 @@ from pathlib import Path
 from decouple import config
 import os
 import dj_database_url
+from helpers.cloudflare.storages import StaticFileStorage, MediaFileStorage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -141,14 +142,14 @@ CLOUDFLARE_R2_CONFIG_OPTIONS = {
 # Default file storage for media and static files
 STORAGES = {
     "default": {
-        "BACKEND": "helpers.cloudflare.storages.MediaFileStorage",
+        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
         "OPTIONS": CLOUDFLARE_R2_CONFIG_OPTIONS,
     },
 
-   "staticfiles": {
-        "BACKEND": "helpers.cloudflare.storages.StaticFileStorage",
+    "staticfiles": {
+        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
         "OPTIONS": CLOUDFLARE_R2_CONFIG_OPTIONS,
-  }
+    }
 }
 
 # Stripe settings
