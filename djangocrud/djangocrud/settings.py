@@ -159,7 +159,9 @@ YOUR_DOMAIN = config('YOUR_DOMAIN')
 
 
 LOGIN_URL = '/login/'
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://vinylroom-production.up.railway.app',
+]
 # Configuraciones de cookies para entornos de desarrollo
 SESSION_COOKIE_SAMESITE = 'Lax'
 SESSION_COOKIE_SECURE = True
