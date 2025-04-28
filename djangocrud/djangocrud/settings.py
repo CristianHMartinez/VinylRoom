@@ -25,9 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=_d9z*$q7de#ta#v9$mg*sl9^2c9m^ft)_zanf%z=mi(ul$c5v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DJANGO_DEBUG")
+DEBUG = os.getenv('DJANGO_DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['*']
+
+ALLOWED_HOSTS = [os.getenv('RAILWAY_PUBLIC_DOMAIN', '*')]
 
 
 # Application definition
