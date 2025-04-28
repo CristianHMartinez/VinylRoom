@@ -83,7 +83,7 @@ DATABASES = {
         'USER': os.getenv('PGUSER'),
         'PASSWORD': os.getenv('PGPASSWORD'),
         'HOST': os.getenv('PGHOST'),
-        'PORT': os.getenv('PGPORT'),
+        'PORT': os.getenv('PGPORT', '5432'),  # 5432 es el puerto por defecto
     }
 }
 
