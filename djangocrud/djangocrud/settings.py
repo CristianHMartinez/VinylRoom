@@ -162,8 +162,8 @@ LOGIN_URL = '/login/'
 
 # Configuraciones de cookies para entornos de desarrollo
 SESSION_COOKIE_SAMESITE = 'Lax'
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 
 # Default primary key field type
