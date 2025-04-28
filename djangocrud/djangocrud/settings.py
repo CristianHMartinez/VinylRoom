@@ -145,13 +145,10 @@ STORAGES = {
         "OPTIONS": CLOUDFLARE_R2_CONFIG_OPTIONS,
     },
 
-#    "staticfiles": {
-#        "BACKEND": "helpers.cloudflare.storages.StaticFileStorage",
-#        "OPTIONS": CLOUDFLARE_R2_CONFIG_OPTIONS,
-#    }
-    "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
-    }
+   "staticfiles": {
+        "BACKEND": "helpers.cloudflare.storages.StaticFileStorage",
+        "OPTIONS": CLOUDFLARE_R2_CONFIG_OPTIONS,
+  }
 }
 
 # Stripe settings
