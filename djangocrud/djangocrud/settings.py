@@ -121,10 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'djangocrud/catalog/static/Images', 
-]
+STATIC_URL = 'https://01df1ca4a408ed4f7faf90ce1de426c5.r2.cloudflarestorage.com/thevinylroom'
 
 # CLOUDFLARE R2 settings
 CLOUDFLARE_R2_BUCKET=config("CLOUDFLARE_R2_BUCKET")
