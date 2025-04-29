@@ -431,8 +431,8 @@ def create_checkout_session(request):
             payment_method_types=['card'],
             line_items=line_items,
             mode='payment',
-            success_url=YOUR_DOMAIN + '/payment-success/',
-            cancel_url=YOUR_DOMAIN + '/cancel/',
+            success_url=YOUR_DOMAIN + 'payment-success/',
+            cancel_url=YOUR_DOMAIN + 'cancel/',
         )
     except Exception as e:
         return HttpResponse(f"Error al crear la sesión de pago: {str(e)}")
